@@ -6,7 +6,7 @@
 version: 2
 updates:
   - package-ecosystem: 'npm'
-    directory: '/' # Location of package manifestsss
+    directory: '/' # Location of package manifest
     target-branch: 'main'
     schedule:
       interval: 'daily'
