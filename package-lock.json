@@ -1,0 +1,24 @@
+{
+  "name": "@amit/examplenodejs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/transmitsecurity-dev/exampleNodeJS.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/transmitsecurity-dev/exampleNodeJS/issues"
+  },
+  "homepage": "https://github.com/transmitsecurity-dev/exampleNodeJS#readme",
+  "dependencies": {
+    "tar": "^6.0.0",
+    "jquery": "1.12.3"
+    
+  }
+}
