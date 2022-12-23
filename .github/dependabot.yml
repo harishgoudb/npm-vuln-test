@@ -18,8 +18,8 @@ registries:
   Artifactory:
     type: npm-registry
     url: https://hts2.jfrog.io/artifactory/api/npm/ca-npm-test
+    username: ${{secrets.MY_ARTIFACTORY_USER}
     token: ${{secrets.JFROG_ACCESS_TOKEN}}
-    username: frogtester3
-    password: ${{secrets.MY_ARTIFACTORY_PASSWORD}}
+    #password: ${{secrets.MY_ARTIFACTORY_PASSWORD}}
     #username: xxx
     #password: ${{secrets.MY_ARTIFACTORY_PASSWORD}}
