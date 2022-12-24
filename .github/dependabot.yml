@@ -20,8 +20,8 @@ registries:
     url: https://hts2.jfrog.io/artifactory/api/npm/ca-npm-test
     username: frogtester3
     #password: ${{secrets.MY_ARTIFACTORY_PASSWORD}}
-    token: ${{secrets.JFROG_ACCESS_TOKEN}}
-    replaces-base: true
-    #password: ${{secrets.MY_ARTIFACTORY_PASSWORD}}
+    #token: ${{secrets.JFROG_ACCESS_TOKEN}}
+    password: ${{secrets.MY_ARTIFACTORY_PASSWORD}}
     #username: xxx
+    replaces-base: true
     #password: ${{secrets.MY_ARTIFACTORY_PASSWORD}}
