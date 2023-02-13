@@ -23,4 +23,3 @@ steps:
         ]
       }
     failNoOp: true
-    minSplit: '50000'
