@@ -7,7 +7,7 @@ trigger:
 - main
 
 pool:
-  vmImage: ubuntu-latest
+  vmImage: windows-latest
 
 steps:
 - task: ArtifactoryGenericDownload@3
@@ -19,7 +19,6 @@ steps:
         "files": [
           {
             "pattern": "generic-fame-obs-prod-local/windows_exporter/windows_exporter-0.20.0-amd64.exe",
-            "target": "/opt/hostedtoolcache/jfrog/"
           }
         ]
       }
