@@ -25,3 +25,7 @@ jobs:
           jfrog config add --artifactory-url https://$ARTI_HOST/artifactory --xray-url https://$ARTI_HOST/xray --user $username --access-token $passwd --interactive=false
           jfrog npm-config --repo-deploy $VIRTUAL_REPOSITORY_NAME --repo-resolve $VIRTUAL_REPOSITORY_NAME
           jfrog rt npm-install --build-name=$BUILD_NAME --build-number=$BUILD_NUMBER --project=$JFROG_PROJECT
+          jfrog rt npm-publish --build-name=$BUILD_NAME --build-number=$BUILD_NUMBER --project=$JFROG_PROJECT
+          jfrog rt bp $BUILD_NAME $BUILD_NUMBER --project=$JFROG_PROJECT
+          jfrog audit $BUILD_NAME $BUILD_NUMBER --project=$JFROG_PROJECT
+          jfrog rt bs $BUILD_NAME $BUILD_NUMBER --project=$JFROG_PROJECT
