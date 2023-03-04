@@ -1,0 +1,33 @@
+# This workflow will run tests using node and then publish a package to GitHub Packages when a release is created
+# For more information see: https://docs.github.com/en/actions/publishing-packages/publishing-nodejs-packages
+
+name: Node.js Package
+
+on: [push, pull_request]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      VIRTUAL_REPOSITORY_NAME: medp-xray-npm-virtual-demo-repo
+      BUILD_NUMBER: ${{ github.run_number }}
+      BUILD_NAME: medp-xray-npm-test
+      ARTI_HOST: hts2.jfrog.io
+      JFROG_PROJECT: medp
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup JFrog CLI and XRAY Scan
+        uses: jfrog/setup-jfrog-cli@v2
+      - name: Add config to Jfrog CLI
+        env:
+          username: ${{ secrets.MEDP_ARTI_SAAS_USER_NAME }}
+          passwd: ${{ secrets.MEDP_ARTI_SAAS_ACCESS_TOKEN }}
+        run: |
+           jfrog config add --artifactory-url https://$ARTI_HOST/artifactory --xray-url https://$ARTI_HOST/xray --user $username --access-token $passwd --interactive=false
+      - name: Config npm repo
+        run: |
+        # pass virtual url
+           jfrog npm-config --repo-deploy $VIRTUAL_REPOSITORY_NAME --repo-resolve $VIRTUAL_REPOSITORY_NAME
+      - name: NPM install
+        run: |
+       cd applications/nodejs
+           jfrog rt npm-install --build-name=$BUILD_NAME --build-number=$BUILD_NUMBER --project=$JFROG_PROJECT 
