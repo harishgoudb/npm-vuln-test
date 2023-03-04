@@ -22,12 +22,6 @@ jobs:
           username: ${{ secrets.MEDP_ARTI_SAAS_USER_NAME }}
           passwd: ${{ secrets.MEDP_ARTI_SAAS_ACCESS_TOKEN }}
         run: |
-           jfrog config add --artifactory-url https://$ARTI_HOST/artifactory --xray-url https://$ARTI_HOST/xray --user $username --access-token $passwd --interactive=false
-      - name: Config npm repo
-        run: |
-        # pass virtual url
-           jfrog npm-config --repo-deploy $VIRTUAL_REPOSITORY_NAME --repo-resolve $VIRTUAL_REPOSITORY_NAME
-      - name: NPM install
-        run: |
-       cd applications/nodejs
-           jfrog rt npm-install --build-name=$BUILD_NAME --build-number=$BUILD_NUMBER --project=$JFROG_PROJECT 
+          jfrog config add --artifactory-url https://$ARTI_HOST/artifactory --xray-url https://$ARTI_HOST/xray --user $username --access-token $passwd --interactive=false
+          jfrog npm-config --repo-deploy $VIRTUAL_REPOSITORY_NAME --repo-resolve $VIRTUAL_REPOSITORY_NAME
+          jfrog rt npm-install --build-name=$BUILD_NAME --build-number=$BUILD_NUMBER --project=$JFROG_PROJECT
