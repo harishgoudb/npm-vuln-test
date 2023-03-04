@@ -16,7 +16,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Setup JFrog CLI and XRAY Scan
-        uses: jfrog/setup-jfrog-cli@v2
+        uses: jfrog/setup-jfrog-cli@v3
       - name: Add config to Jfrog CLI
         env:
           username: ${{ secrets.MEDP_ARTI_SAAS_USER_NAME }}
