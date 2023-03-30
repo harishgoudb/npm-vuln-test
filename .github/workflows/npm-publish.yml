@@ -15,7 +15,7 @@ jobs:
       JFROG_PROJECT: medp
     steps:
       - uses: actions/checkout@v3
-      - name: Setup JFrog CLI and XRAY Scan
+      - name: Setup JFrog CLI and XRAY Scans
         uses: jfrog/setup-jfrog-cli@v3
       - name: Add config to Jfrog CLI
         env:
